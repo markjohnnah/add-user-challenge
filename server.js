@@ -3,22 +3,28 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const ejsLayouts = require('express-ejs-layouts')
 
-
 PORT = 3000
 
 const app = express()
 
+//attaches data to response object
 app.use(bodyParser.urlencoded({extended:true}));
+
+//serves staic files
 app.use(express.static('public'))
 
+//sets ejs view engine template
 app.set('view engine','ejs')
 app.use(ejsLayouts)
 
+//default route
 app.get('/', function(req, res) {
 
     res.render('index')
 
 })
+
+//handles form post request
 app.post('/register', function(req, res) {
 
     let userData = {
@@ -26,6 +32,7 @@ app.post('/register', function(req, res) {
         lastname: req.body.lastname,
         email: req.body.email
     }
+//TODO: add user to db
 
 const message = `Thank you ${userData.firstname} ${userData.lastname} for registering`
 console.log(userData)
