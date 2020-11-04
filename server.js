@@ -46,25 +46,9 @@ app.post('/register', function(req, res) {
 
     }
 
-//create user
-// const user = new User( {   
-      
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//     email: req.body.email
-// })
-
-//save user
-// user.save()
-// .then(user => {
-//     console.log(user.body);
-// }).catch(err => {
-//     res.status(500).send({
-//         message: err.message || "error creating user."
-//     });
-// });
+const message = `Thank you ${userData.firstname} ${userData.lastname} for registering`
 console.log(userData)
-res.render('index', userData)
+res.render('index', message)
 
 
 })
