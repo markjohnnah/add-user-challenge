@@ -34,9 +34,11 @@ app.post('/register', function(req, res) {
     }
 //TODO: add user to db
 
-const message = `Thank you ${userData.firstname} ${userData.lastname} for registering`
+const message = `Thank you ${req.body.firstname} ${req.body.lastname} for registering`
 console.log(userData)
-res.render('index', message)
+res.render('index', {
+    message: message
+})
 
 
 })
