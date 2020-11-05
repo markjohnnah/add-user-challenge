@@ -10,7 +10,7 @@ const app = express()
 //attaches data to response object
 app.use(bodyParser.urlencoded({extended:true}));
 
-//serves staic files
+//serves static files
 app.use(express.static('public'))
 
 //sets ejs view engine template
